@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        fieldset {
+            margin-right: auto;
+            margin-left: auto;
+            width: 80%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        legend {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        table {
+            margin-left: 80px;
+        }
+
+        input,
+        button {
+            margin-left: 20px;
+        }
+
+        td {
+            padding-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: end;
+        }
+
+        button {
+            background-color: #33aabb;
+            color: #ffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="form">
+        <fieldset>
+            <legend>Form</legend>
+            <table>
+                <tr>
+                    <td><label for="namaPelanggan">Nama Pelanggan</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="namaPelanggan"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="jamKeberangkatan">Jam Keberangkatan</label></td>
+                    <td>:</td>
+                    <td><input type="datetime-local" id="jamKeberangkatan"></td>
+                </tr>
+                <tr>
+                    <td><label for="tujuanKeberangkatan">Tujuan Keberangkatan</label></td>
+                    <td>:</td>
+                    <td><input type="text" id="tujuanKeberangkatan"></td>
+                </tr>
+                <tr>
+                    <td><label for="jumlahTiket">Jumlah Tiket</label></td>
+                    <td>:</td>
+                    <td><input type="number" id="jumlahTiket"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td> <button type="button" onclick="formValidation()" id="button">Kirim</button></td>
+                </tr>
+            </table>
+        </fieldset>
+
+    </form>
+    <script>
+
+        function formValidation() {
+            let namaPelanggan_input = document.getElementById('namaPelanggan').value
+            let email_input = document.getElementById('email').value
+            let jamKeberangkatan_input = document.getElementById('jamKeberangkatan').value
+            let tujuanKeberangkatan_input = document.getElementById('tujuanKeberangkatan').value
+            let jumlahTiket_input = document.getElementById('jumlahTiket').value
+            if (namaPelanggan_input.length > 30) {
+                alert("Nama pelanggan tidak valid! Panjang nama pelanggan maksimal 30 karakter.")
+            }
+            else if (!email_input.includes("@")) {
+                alert("Email tidak valid! Harap masukkan email dengan format yang benar")
+            }
+            else if (jamKeberangkatan_input != jamKeberangkatan_input) {
+                alert("Jam keberangkatan tidak valid ! Harap sesuai dengan format yang benar")
+            }
+            else if (tujuanKeberangkatan_input != tujuanKeberangkatan_input) {
+                alert("Tujuan keberangkatan tidak valid ! Harap sesuai dengan format yang benar ")
+            }
+            else if (jumlahTiket_input > 10) {
+                alert("Jumlah tiket tidak valid ! Jumlah tiket maksimal 10")
+            }
+            else {
+                alert("Success")
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+</head>
+
+<body>
+    <label for="imageSelect">Select an image : </label>
+    <select id="imageSelect" onchange="imagePicker()">
+        <option value="selectOne">Select One</option>
+        <option value="momoTwice">Momo Twice</option>
+        <option value="mutheJkt8">Muthe Jkt48</option>
+        <option value="goyoonjung">Go Yoon Jung</option>
+    </select>
+
+    <div>
+        <img id="image" style="width: 500px;">
+    </div>
+
+
+    <script>
+        let isImageChange = false
+        function imagePicker() {
+            const list_image = ["momo-twice.jpg", "muthe-jkt48.jpg", "goyoonjung.jpg",]
+            let choose = document.getElementById('imageSelect').value
+
+            let path = "image/"
+
+            if (choose == "momoTwice") {
+                let select = list_image[0]
+                document.getElementById("image").src = path + select
+                showImageAlert(select)
+            }
+            else if (choose == "mutheJkt8") {
+                let select = list_image[1]
+                document.getElementById("image").src = path + select
+                showImageAlert(select)
+            }
+            else if (choose == "goyoonjung") {
+                let select = list_image[2]
+                document.getElementById("image").src = path + select
+                showImageAlert(select)
+            }
+        }
+        function showImageAlert() {
+            if (!isImageChange) {
+                isImageChange = true
+                setTimeout(() => {
+                    alert("Nama File Gambar : " + select)
+                    isImageChange = false
+                }, 100)
+            }
+
+        }
+    </script>
+</body>
+
+</html>
